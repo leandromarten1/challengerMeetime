@@ -12,7 +12,7 @@ const validationSchema = yup.object().shape({
   cadence: yup.string().required(' Campo obrigatório - Escolha uma Cadência'),
   name: yup.string(),
   email: yup.string().email('Email inválido').required('Campo obrigatório'),
-  phone: yup.string(),
+  phone: yup.number(),
 });
 
 const AdicionarLead = () => {
