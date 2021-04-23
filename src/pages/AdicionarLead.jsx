@@ -47,6 +47,7 @@ const AdicionarLead = () => {
       name: '',
       email: '',
       phone: '',
+      teste: '',
     },
   });
 
@@ -115,6 +116,7 @@ const AdicionarLead = () => {
               type='text'
               onChange={formik.handleChange}
               value={formik.values.phone}
+              placeholder='(DDD) + Número'
             />
             {formik.touched.phone && (
               <Form.Text className='text-danger'>

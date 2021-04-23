@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 
-import { Container, Table, Button } from 'react-bootstrap';
 import { api } from '../services/api';
+import phoneMask from '../utils/phoneMask';
+import { Container, Table, Button } from 'react-bootstrap';
+import moment from 'moment';
 
 const Leads = () => {
   const [leads, setLeads] = useState([]);
 
   useEffect(() => {
     api.get('leads').then(({ data }) => {
-      console.log(data.data);
       const response = data.data.map((lead) => {
         return {
           id: lead.id,
           name: lead.lead_name,
           email: lead.lead_email,
-          createdAt: lead.lead_created_date,
+          createdAt: moment(lead.lead_created_date).format('DD/MM/YYYY'),
           phone: lead.phones,
         };
       });
+      // console.log(response);
       setLeads(response);
     });
   }, []);
@@ -46,7 +48,7 @@ const Leads = () => {
                   <td>{lead.email}</td>
                   <td>{lead.createdAt}</td>
                   {lead.phone.map((phone) => (
-                    <td>{phone.phone}</td>
+                    <td key={phone.phone}>{phoneMask(phone.phone)}</td>
                   ))}
                   <td>
                     <Button variant='info' type='button' size='sm' block>
