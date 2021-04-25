@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 
 import { api } from '../services/api';
 import phoneMask from '../utils/phoneMask';
-import { Container, Table, Button } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import moment from 'moment';
 
 const Leads = () => {
@@ -51,9 +52,12 @@ const Leads = () => {
                     <td key={phone.phone}>{phoneMask(phone.phone)}</td>
                   ))}
                   <td>
-                    <Button variant='info' type='button' size='sm' block>
+                    <Link
+                      to={`/leads/editar/${lead.id}`}
+                      className='btn btn-info btn-block btn-sm'
+                    >
                       Editar
-                    </Button>
+                    </Link>
                   </td>
                 </tr>
               );

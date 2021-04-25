@@ -47,7 +47,6 @@ const AdicionarLead = () => {
       name: '',
       email: '',
       phone: '',
-      teste: '',
     },
   });
 
