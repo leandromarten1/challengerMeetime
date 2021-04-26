@@ -21,7 +21,6 @@ const Leads = () => {
           phone: lead.phones,
         };
       });
-      // console.log(response);
       setLeads(response);
     });
   }, []);
@@ -54,7 +53,7 @@ const Leads = () => {
                   <td>
                     <Link
                       to={`/leads/editar/${lead.id}`}
-                      className='btn btn-info btn-block btn-sm'
+                      className='btn btn-primary btn-block btn-sm'
                     >
                       Editar
                     </Link>

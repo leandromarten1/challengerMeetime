@@ -12,7 +12,7 @@ const validationSchema = yup.object().shape({
   cadence: yup.string().required(' Campo obrigatório - Escolha uma Cadência'),
   name: yup.string(),
   email: yup.string().email('Email inválido').required('Campo obrigatório'),
-  phone: yup.number(),
+  phone: yup.string(),
 });
 
 const AdicionarLead = () => {
@@ -123,13 +123,23 @@ const AdicionarLead = () => {
               </Form.Text>
             )}
           </Form.Group>
-
-          <Button variant='secondary' type='reset'>
-            Limpar
-          </Button>
-          <Button variant='primary' type='button' onClick={formik.handleSubmit}>
-            Adicionar
-          </Button>
+          <div className='buttons'>
+            <Button
+              variant='outline-primary'
+              type='reset'
+              data-testid='btn-reset'
+            >
+              Limpar
+            </Button>
+            <Button
+              variant='primary'
+              type='button'
+              onClick={formik.handleSubmit}
+              data-testid='btn-add'
+            >
+              Adicionar
+            </Button>
+          </div>
         </Form>
       </Container>
     </>

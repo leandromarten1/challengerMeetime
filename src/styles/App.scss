@@ -1,0 +1,27 @@
+@import "custom";
+
+body {
+    background: whitesmoke;
+    color: #333;
+}
+
+.navbar {
+    margin-bottom: 3rem;
+}
+
+.container {
+    h3 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.buttons {
+    float: right;
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    button:last-child {
+        margin-left: 1rem;
+    }
+}

@@ -64,13 +64,19 @@ const EditarLead = () => {
                     value={props.values.phone}
                   />
                 </Form.Group>
-
-                <Button variant='secondary' type='reset'>
-                  Limpar
-                </Button>
-                <Button variant='primary' type='button'>
-                  Adicionar
-                </Button>
+                <div className='buttons'>
+                  <Button variant='outline-primary' type='reset'>
+                    Limpar
+                  </Button>
+                  <Button
+                    variant='primary'
+                    type='button'
+                    data-testid='btn-update'
+                    onClick={() => alert('Os dados foram salvos')}
+                  >
+                    Atualizar
+                  </Button>
+                </div>
               </Form>
             )}
           </Formik>
